@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishwords.MainPageController">
+   <children>
+      <Pane layoutY="118.0" prefHeight="439.0" prefWidth="600.0" style="-fx-background-color: #201E67;">
+         <children>
+            <Button fx:id="buttonChange" layoutX="351.0" layoutY="266.0" onAction="#clickChangeButton" prefHeight="60.0" prefWidth="176.0" stylesheets="@../Buttons.css" text="Change">
+               <font>
+                  <Font name="Lobster Regular" size="31.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonPlay" layoutX="351.0" layoutY="29.0" onAction="#clickPlayButton" prefHeight="31.0" prefWidth="176.0" stylesheets="@../Buttons.css" text="PLAY" wrapText="true">
+               <font>
+                  <Font name="Lobster Regular" size="31.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonAdd" layoutX="351.0" layoutY="109.0" onAction="#clickAddTopicButton" prefHeight="60.0" prefWidth="176.0" stylesheets="@../Buttons.css" text="Add topic">
+               <font>
+                  <Font name="Lobster Regular" size="31.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonAdd1" layoutX="351.0" layoutY="186.0" onAction="#clickAddWordsButton" prefHeight="60.0" prefWidth="176.0" stylesheets="@../Buttons.css" text="Add words">
+               <font>
+                  <Font name="Lobster Regular" size="31.0" />
+               </font>
+            </Button>
+            <ListView fx:id="listViewMain" prefHeight="439.0" prefWidth="272.0" stylesheets="@../ListView.css" />
+            <Button fx:id="buttonDelete" layoutX="351.0" layoutY="342.0" onAction="#clickDeleteButton" prefHeight="60.0" prefWidth="176.0" stylesheets="@../Buttons.css" text="Delete">
+               <font>
+                  <Font name="Lobster Regular" size="31.0" />
+               </font>
+            </Button>
+            <Label layoutX="280.0" layoutY="420.0" text="© Alexey Sklutov, Slutsk, Belarus 2022 " textFill="WHITE">
+               <font>
+                  <Font name="Lobster Regular" size="13.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <AnchorPane cacheShape="false" centerShape="false" layoutY="-5.0" minHeight="50.0" minWidth="50.0" mouseTransparent="true" pickOnBounds="false" prefHeight="125.0" prefWidth="600.0" scaleShape="false" style="-fx-background-color: #ff6900; -fx-background-radius: 5; -fx-border-color: #16152e; -fx-border-width: 5;">
+         <children>
+            <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="BOTTOM" layoutX="191.0" layoutY="19.0" prefHeight="78.0" prefWidth="224.0" text="Words" textAlignment="CENTER" textFill="#fafafa">
+               <font>
+                  <Font name="Lobster Regular" size="65.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

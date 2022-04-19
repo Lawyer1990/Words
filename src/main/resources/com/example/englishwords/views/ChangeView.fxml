@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0"
+      prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.englishwords.ChangeController">
+    <children>
+        <Pane cacheShape="false" centerShape="false" layoutY="-5.0" minHeight="50.0" minWidth="50.0"
+              mouseTransparent="true" pickOnBounds="false" prefHeight="97.0" prefWidth="736.0"
+              style="-fx-background-color: #ff6900; -fx-background-radius: 5; -fx-border-color: #16152e; -fx-border-width: 5;">
+            <children>
+                <Label fx:id="changeText" alignment="CENTER" contentDisplay="BOTTOM" layoutX="256.0" layoutY="7.0"
+                       prefHeight="78.0" prefWidth="224.0" text="Change" textAlignment="CENTER" textFill="#fafafa">
+                    <font>
+                        <Font name="Lobster Regular" size="65.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <TableView fx:id="tableView" layoutX="-2.0" layoutY="92.0" prefHeight="396.0" prefWidth="448.0"
+                   onMouseClicked="#onSelectRow" onKeyPressed="#onKeyPressedOnTable">
+            <columns>
+                <TableColumn fx:id="columnFirst" prefWidth="148.0" resizable="false" text="First meaning">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="meaningOne"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="columnSecond" prefWidth="148.0" resizable="false" text="Second meaning">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="meaningTwo"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="columnTranscription" prefWidth="151.0" resizable="false" text="Transcription">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="transcription"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <AnchorPane layoutX="446.0" layoutY="92.0" minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="290.0"
+                    style="-fx-background-color: #201E67;">
+            <children>
+                <TextField fx:id="inputName" layoutX="15.0" layoutY="42.0" onKeyReleased="#onKeyReleased"
+                           prefHeight="24.0" prefWidth="260.0">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </TextField>
+                <TextField fx:id="inputFirstMeaning" layoutX="15.0" layoutY="119.0" onKeyReleased="#onKeyReleased"
+                           prefHeight="24.0" prefWidth="260.0">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </TextField>
+                <TextField fx:id="inputSecondMeaning" layoutX="15.0" layoutY="193.0" onKeyReleased="#onKeyReleased"
+                           prefHeight="24.0" prefWidth="260.0">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </TextField>
+                <Button layoutX="22.0" layoutY="321.0" mnemonicParsing="false" onAction="#onClickChangeButton"
+                        prefHeight="52.0" prefWidth="113.0" stylesheets="@../Buttons.css" text="Change">
+                    <font>
+                        <Font name="Lobster Regular" size="26.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="15.0" layoutY="7.0" prefHeight="24.0" prefWidth="65.0" text="Name" textFill="WHITE">
+                    <font>
+                        <Font name="Lobster Regular" size="26.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="15.0" layoutY="85.0" prefHeight="34.0" prefWidth="163.0" text="First meaning"
+                       textFill="WHITE">
+                    <font>
+                        <Font name="Lobster Regular" size="26.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="15.0" layoutY="158.0" prefHeight="34.0" prefWidth="181.0" text="Second meaning"
+                       textFill="WHITE">
+                    <font>
+                        <Font name="Lobster Regular" size="26.0"/>
+                    </font>
+                </Label>
+                <Button layoutX="156.0" layoutY="321.0" mnemonicParsing="false" onAction="#onClickDeleteButton"
+                        prefHeight="52.0" prefWidth="113.0" stylesheets="@../Buttons.css" text="Delete">
+                    <font>
+                        <Font name="Lobster Regular" size="26.0"/>
+                    </font>
+                </Button>
+                <TextField fx:id="inputTranslation" layoutX="15.0" layoutY="267.0" onKeyReleased="#onKeyReleased"
+                           prefHeight="24.0" prefWidth="260.0">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </TextField>
+                <Label layoutX="15.0" layoutY="232.0" prefHeight="34.0" prefWidth="181.0" text="Transcription"
+                       textFill="WHITE">
+                    <font>
+                        <Font name="Lobster Regular" size="26.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</Pane>

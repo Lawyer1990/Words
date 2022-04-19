@@ -1,0 +1,42 @@
+.button
+{
+    -fx-text-fill: #fafafa;
+   -fx-background-color:
+        #3c7fb1,
+        linear-gradient(#fafdfe, #16152a),
+        linear-gradient(#ff6900 0%, #ff6900 49%, #ff6900 50%, #ff6900 100%);
+ -fx-border-color: #16152e;
+ -fx-background-radius:  20;
+ -fx-border-radius: 20;
+ -fx-border-radius:  00 00 10 10;
+ -fx-border-width: 5;
+ -fx-region-border: 50;
+}
+.button:hover
+{
+    -fx-text-fill: #ffd771;
+   -fx-background-color:
+        #3c7fb1,
+        linear-gradient(#fafdfe, #16152a),
+        linear-gradient(#ff6900 0%, #ff6900 49%, #ff6900 50%, #ff6900 100%);
+ -fx-border-color: #16152a;
+ -fx-background-radius:  20;
+ -fx-border-radius: 20;
+ -fx-border-radius:  00 00 10 10;
+ -fx-border-width: 5;
+ -fx-region-border: 50;
+}
+.button:pressed
+{
+    -fx-text-fill: #fafafa;
+   -fx-background-color:
+        #3c7fb1,
+        linear-gradient(#16152a, #16152a),
+        linear-gradient(#ff6900 0%, #ff6900 49%, #ff6900 50%, #ff6900 100%);
+ -fx-border-color: #16152a;
+ -fx-background-radius:  20;
+ -fx-border-radius: 20;
+ -fx-border-radius:  00 00 10 10;
+ -fx-border-width: 5;
+ -fx-region-border: 50;
+}
