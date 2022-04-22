@@ -1,6 +1,7 @@
 package com.example.englishwords;
 
 import com.example.englishwords.sql.SqlHelper;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -10,6 +11,7 @@ public class AddTopicController {
 
     private final SqlHelper sqlHelper = new SqlHelper();
     public TextField inputField;
+    public Label inputTop;
 
     public void onClickEnter(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {

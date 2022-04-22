@@ -39,7 +39,6 @@ public class MainPageController implements Initializable {
     }
 
     public void clickAddTopicButton() {
-        model = listViewMain.getSelectionModel();
         openScene("views/AddTopicView.fxml", "Add topic", Option.NOT_SELECTED);
     }
 
@@ -52,16 +51,14 @@ public class MainPageController implements Initializable {
     }
 
     public void clickDeleteButton() {
-        model = listViewMain.getSelectionModel();
         openScene("views/ModalWindowView.fxml", "Are you sure you want to delete topic?", Option.SELECTED);
-        initialize(null, null);
     }
 
 
     public void clickPlayButton() {
         model = listViewMain.getSelectionModel();
         topicsSql.updateTopicDate(receiveSelectedItem());
-        initialize(null, null);
+        openScene("views/PlayView.fxml", "Play mode", Option.SELECTED);
     }
 
     @Override
@@ -96,7 +93,6 @@ public class MainPageController implements Initializable {
                     windowMain.show();
                     initialize(null, null);
                 }
-
                 break;
             }
             case NOT_SELECTED: {

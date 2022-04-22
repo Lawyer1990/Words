@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.englishwords.PlayController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</VBox>
+<AnchorPane prefHeight="310.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishwords.PlayController">
+   <children>
+      <Pane layoutY="-5.0" onKeyReleased="#onKeyPressed" prefHeight="111.0" prefWidth="810.0" style="-fx-background-color: #ff6900; -fx-background-radius: 5; -fx-border-color: #16152e; -fx-border-width: 5;">
+          <Label layoutX="266.0" layoutY="14.0" prefHeight="83.0" prefWidth="278.0" text="Play mode" textFill="WHITE">
+              <font>
+                  <Font name="Lobster Regular" size="65.0" />
+              </font>
+          </Label>
+         <opaqueInsets>
+            <Insets top="-18.0" />
+         </opaqueInsets>
+      </Pane>
+      <Pane layoutY="106.0" prefHeight="204.0" onKeyReleased="#onKeyPressed" prefWidth="810.0" style="-fx-background-color: #201E67;">
+         <children>
+            <VBox fx:id="vb" layoutX="7.0" layoutY="4.0" prefHeight="102.0" prefWidth="798.0">
+               <children>
+                   <Label fx:id="inputTop" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
+                       <font>
+                           <Font name="Lobster Regular" size="26.0" />
+                       </font>
+                   </Label>
+                  <Label fx:id="inputMiddle" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
+                     <font>
+                        <Font name="Lobster Regular" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="inputBottom" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
+                     <font>
+                        <Font name="Lobster Regular" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <CheckBox layoutX="14.0" layoutY="155.0" mnemonicParsing="false" text="Reverse" textFill="WHITE">
+               <font>
+                  <Font name="Lobster Regular" size="24.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="buttonGo" layoutX="348.0" layoutY="125.0" mnemonicParsing="false" onAction="#onClickGoButton" prefHeight="52.0" prefWidth="112.0" stylesheets="@../Buttons.css" text="Go!">
+             <font>
+                 <Font name="Lobster Regular" size="26.0" />
+             </font>
+             </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
