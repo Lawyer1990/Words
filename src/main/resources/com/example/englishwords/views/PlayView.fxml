@@ -21,7 +21,7 @@
             <Insets top="-18.0" />
          </opaqueInsets>
       </Pane>
-      <Pane layoutY="106.0" prefHeight="204.0" onKeyReleased="#onKeyPressed" prefWidth="810.0" style="-fx-background-color: #201E67;">
+      <Pane layoutY="106.0" onKeyReleased="#onKeyPressed" prefHeight="204.0" prefWidth="810.0" style="-fx-background-color: #201E67;">
          <children>
             <VBox fx:id="vb" layoutX="7.0" layoutY="4.0" prefHeight="102.0" prefWidth="798.0">
                <children>
@@ -42,7 +42,7 @@
                   </Label>
                </children>
             </VBox>
-            <CheckBox layoutX="14.0" layoutY="155.0" mnemonicParsing="false" text="Reverse" textFill="WHITE">
+            <CheckBox fx:id="checkboxReverse" layoutX="14.0" layoutY="155.0" mnemonicParsing="false" onAction="#onChangeCheckbox" text="Reverse" textFill="WHITE">
                <font>
                   <Font name="Lobster Regular" size="24.0" />
                </font>
@@ -52,6 +52,11 @@
                  <Font name="Lobster Regular" size="26.0" />
              </font>
              </Button>
+            <Label fx:id="wordsLeft" layoutX="650.0" layoutY="159.0" textFill="WHITE">
+               <font>
+                  <Font name="Lobster Regular" size="30.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

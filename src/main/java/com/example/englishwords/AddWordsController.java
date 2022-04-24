@@ -49,6 +49,7 @@ public class AddWordsController implements Initializable {
         columnTranscription.setCellValueFactory(
                 f -> new SimpleStringProperty(f.getValue().getTranscription()));
         tableView.setItems(meanings);
+        inputFirstMeaning.requestFocus();
     }
 
     public void onClickAddWordsButton() {
@@ -56,6 +57,10 @@ public class AddWordsController implements Initializable {
             sqlHelper.addWords(inputFirstMeaning.getText(), inputSecondMeaning.getText(), receiveSelectedItem(),
                     inputTranscription.getText());
             initialize(null, null);
+            inputFirstMeaning.setText("");
+            inputSecondMeaning.setText("");
+            inputTranscription.setText("");
+            inputFirstMeaning.requestFocus();
         }
     }
 

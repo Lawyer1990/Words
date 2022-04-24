@@ -49,8 +49,9 @@ public class MeaningSqlController extends BaseSqlController {
             connectToDataBase().executeUpdate(INSERT.getValue() + INTO.getValue() +
                     TABLE_MEANINGS + roundBracketsValue(COLUMN_MEANING_ONE + COMO +
                     COLUMN_MEANING_TWO + COMO + COLUMN_TOPIC_ID + COMO + COLUMN_MEANING_TRANSCRIPTION) +
-                    VALUES.getValue() + roundBracketsValue(bracketsValue(meaningOne) + COMO +
-                    bracketsValue(meaningTwo) + COMO + bracketsValue(topicId) + COMO + bracketsValue(transcription)));
+                    VALUES.getValue() + roundBracketsValue(bracketsValue(meaningOne.replace("'", "\\'")) + COMO +
+                    bracketsValue(meaningTwo.replace("'", "\\'")) + COMO + bracketsValue(topicId) +
+                    COMO + bracketsValue(transcription.replace("'", "\\'"))));
             closeConnection();
         } catch (SQLException ex) {
             log.error(String.valueOf(ex));
