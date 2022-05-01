@@ -27,4 +27,10 @@ public class SqlHelper {
         meaningSqlController.deleteMeanings(meanings.stream().filter(s -> s.getMeaningOne().equals(meaningOne))
                 .filter(a -> a.getMeaningTwo().equals(meaningTwo)).findFirst().get().getId());
     }
+
+    public void changeWords(String oldMeaningOne, String oldMeaningTwo, String meaningOne, String meaningTwo, String topicName) {
+        List<MeaningsModel> meanings = receiveMeaning(topicName);
+        meaningSqlController.changeMeaning(meanings.stream().filter(s -> s.getMeaningOne().equals(oldMeaningOne))
+                .filter(a -> a.getMeaningTwo().equals(oldMeaningTwo)).findFirst().get().getId(), meaningOne, meaningTwo);
+    }
 }

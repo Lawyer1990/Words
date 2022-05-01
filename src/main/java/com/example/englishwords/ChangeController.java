@@ -35,6 +35,8 @@ public class ChangeController implements Initializable {
     @FXML
     private TextField inputSecondMeaning;
     private SqlHelper sqlHelper = new SqlHelper();
+    private String oldMeaningOne;
+    private String oldMeaningTwo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,9 +63,18 @@ public class ChangeController implements Initializable {
     }
 
     public void onClickChangeButton() {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        oldMeaningOne = tableView.getSelectionModel().getSelectedItem().getMeaningOne();
+        oldMeaningTwo = tableView.getSelectionModel().getSelectedItem().getMeaningTwo();
         if (!inputName.getText().isEmpty()) {
             if (!inputFirstMeaning.getText().isEmpty() || !inputSecondMeaning.getText().isEmpty()) {
+                sqlHelper.changeWords(oldMeaningOne, oldMeaningTwo, inputFirstMeaning.getText(),
+                        inputSecondMeaning.getText(), inputName.getText());
                 initialize(null, null);
+                tableView.getSelectionModel().select(selectedIndex);
+                inputFirstMeaning.setText(tableView.getSelectionModel().getSelectedItem().getMeaningOne());
+                inputSecondMeaning.setText(tableView.getSelectionModel().getSelectedItem().getMeaningTwo());
+                inputTranslation.setText(tableView.getSelectionModel().getSelectedItem().getTranscription());
             }
         }
     }

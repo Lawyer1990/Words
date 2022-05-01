@@ -45,6 +45,10 @@ public abstract class BaseSqlController {
         return "='" + value + "'";
     }
 
+    protected String equalsValue(int value) {
+        return "=" + value + "";
+    }
+
     protected String roundBracketsValue(String value) {
         return " (" + value + ") ";
     }

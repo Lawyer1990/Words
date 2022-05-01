@@ -27,17 +27,17 @@
                <children>
                    <Label fx:id="inputTop" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
                        <font>
-                           <Font name="Lobster Regular" size="26.0" />
+                           <Font name="Lobster Regular" size="32.0" />
                        </font>
                    </Label>
                   <Label fx:id="inputMiddle" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
                      <font>
-                        <Font name="Lobster Regular" size="26.0" />
+                        <Font name="Lobster Regular" size="32.0" />
                      </font>
                   </Label>
                   <Label fx:id="inputBottom" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
                      <font>
-                        <Font name="Lobster Regular" size="26.0" />
+                        <Font name="Lobster Regular" size="32.0" />
                      </font>
                   </Label>
                </children>
@@ -57,6 +57,11 @@
                   <Font name="Lobster Regular" size="30.0" />
                </font>
             </Label>
+            <Button fx:id="showTranscription" layoutX="168.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickShowTranscription" prefHeight="24.0" prefWidth="137.0" stylesheets="@../Buttons.css" text="Show transcription">
+               <font>
+                  <Font name="Lobster Regular" size="13.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

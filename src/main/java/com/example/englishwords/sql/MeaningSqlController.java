@@ -67,4 +67,15 @@ public class MeaningSqlController extends BaseSqlController {
             log.error(String.valueOf(ex));
         }
     }
+
+    public void changeMeaning(int meaningsId, String firstMeaning, String secondMeaning) {
+        try {
+            connectToDataBase().executeUpdate(UPDATE.getValue() + TABLE_MEANINGS + SET.getValue() +
+                    COLUMN_MEANING_ONE + equalsValue(firstMeaning) + "," + COLUMN_MEANING_TWO + equalsValue(secondMeaning) +
+                    WHERE.getValue() + COLUMN_MEANING_ID + equalsValue(meaningsId));
+            closeConnection();
+        } catch (SQLException ex) {
+            log.error(String.valueOf(ex));
+        }
+    }
 }

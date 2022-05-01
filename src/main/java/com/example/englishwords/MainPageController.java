@@ -58,7 +58,7 @@ public class MainPageController implements Initializable {
     public void clickPlayButton() {
         model = listViewMain.getSelectionModel();
         topicsSql.updateTopicDate(receiveSelectedItem());
-        openScene("views/PlayView.fxml", "Play mode", Option.SELECTED);
+        openScene("views/PlayView.fxml", receiveSelectedItem(), Option.SELECTED);
     }
 
     @Override

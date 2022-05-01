@@ -4,6 +4,7 @@ import com.example.englishwords.models.MeaningsModel;
 import com.example.englishwords.sql.SqlHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -27,9 +28,8 @@ public class PlayController implements Initializable {
     public Button buttonGo;
     public CheckBox checkboxReverse;
     public Label wordsLeft;
-    private ObservableList<MeaningsModel> meanings = FXCollections.observableArrayList();
-    private ObservableList<MeaningsModel> meaningsTwo = FXCollections.observableArrayList();
-    private SqlHelper sqlHelper = new SqlHelper();
+    private final ObservableList<MeaningsModel> meanings = FXCollections.observableArrayList();
+    private final SqlHelper sqlHelper = new SqlHelper();
     private int count;
     private int step = 0;
     private int randomNumber;
@@ -38,8 +38,7 @@ public class PlayController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (meanings.size() == 0) {
             meanings.addAll(sqlHelper.receiveMeaning(receiveSelectedItem()));
-            meaningsTwo = meanings;
-            count = meaningsTwo.size();
+            count = meanings.size();
         }
         inputTop.setMaxWidth(Double.MAX_VALUE);
         inputMiddle.setMaxWidth(Double.MAX_VALUE);
@@ -51,22 +50,22 @@ public class PlayController implements Initializable {
     }
 
     public void onClickGoButton() {
-        wordsLeft.setText(meaningsTwo.size() + " words left");
+        wordsLeft.setText(meanings.size() + " words left");
         Random random = new Random();
         if (step == 0 && count != 0) randomNumber = random.nextInt(count);
         if (checkboxReverse.isSelected()) {
-            if (meaningsTwo.size() != 0) {
+            if (meanings.size() != 0) {
                 if (step == 1) {
-                    inputTop.setText(meaningsTwo.get(randomNumber).getMeaningOne());
+                    inputTop.setText(meanings.get(randomNumber).getMeaningOne());
                     buttonGo.setText("Next");
-                    meaningsTwo.remove(randomNumber);
+                    meanings.remove(randomNumber);
                     count--;
                     step = -1;
                 }
                 if (step == 0) {
                     inputTop.setText("");
-                    inputMiddle.setText(meaningsTwo.get(randomNumber).getTranscription());
-                    inputBottom.setText(meaningsTwo.get(randomNumber).getMeaningTwo());
+                    inputMiddle.setText("");
+                    inputBottom.setText(meanings.get(randomNumber).getMeaningTwo());
                     buttonGo.setText("Show");
                 }
                 step++;
@@ -75,24 +74,22 @@ public class PlayController implements Initializable {
                 inputMiddle.setText("");
                 inputBottom.setText("");
                 initialize(null, null);
-                meaningsTwo = meanings;
-                count = meaningsTwo.size();
+                count = meanings.size();
                 buttonGo.setText("Go!");
                 step = 0;
             }
         } else {
-            if (meaningsTwo.size() != 0) {
+            if (meanings.size() != 0) {
                 if (step == 0) {
-                    inputTop.setText(meaningsTwo.get(randomNumber).getMeaningOne());
+                    inputTop.setText(meanings.get(randomNumber).getMeaningOne());
                     inputMiddle.setText("");
                     inputBottom.setText("");
                     buttonGo.setText("Show");
                 }
                 if (step == 1) {
-                    inputMiddle.setText(meaningsTwo.get(randomNumber).getTranscription());
-                    inputBottom.setText(meaningsTwo.get(randomNumber).getMeaningTwo());
+                    inputBottom.setText(meanings.get(randomNumber).getMeaningTwo());
                     buttonGo.setText("Next");
-                    meaningsTwo.remove(randomNumber);
+                    meanings.remove(randomNumber);
                     count--;
                     step = -1;
                 }
@@ -102,8 +99,7 @@ public class PlayController implements Initializable {
                 inputMiddle.setText("");
                 inputBottom.setText("");
                 initialize(null, null);
-                meaningsTwo = meanings;
-                count = meaningsTwo.size();
+                count = meanings.size();
                 buttonGo.setText("Go!");
                 step = 0;
             }
@@ -121,9 +117,18 @@ public class PlayController implements Initializable {
         inputMiddle.setText("");
         inputBottom.setText("");
         initialize(null, null);
-        meaningsTwo = meanings;
-        count = meaningsTwo.size();
+        count = meanings.size();
         buttonGo.setText("Go!");
         step = 0;
+    }
+
+    public void onClickShowTranscription(ActionEvent actionEvent) {
+        if (!inputTop.getText().equals(""))
+            inputMiddle.setText(
+                    sqlHelper.receiveMeaning(receiveSelectedItem()).stream().filter(s -> s.getMeaningOne().equals(inputTop.getText())).findFirst().get()
+                            .getTranscription());
+        else inputMiddle.setText(
+                sqlHelper.receiveMeaning(receiveSelectedItem()).stream().filter(s -> s.getMeaningTwo().equals(inputBottom.getText())).findFirst().get()
+                        .getTranscription());
     }
 }
