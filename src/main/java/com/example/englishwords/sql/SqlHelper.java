@@ -28,9 +28,9 @@ public class SqlHelper {
                 .filter(a -> a.getMeaningTwo().equals(meaningTwo)).findFirst().get().getId());
     }
 
-    public void changeWords(String oldMeaningOne, String oldMeaningTwo, String meaningOne, String meaningTwo, String topicName) {
+    public void changeWords(String oldMeaningOne, String oldMeaningTwo, String meaningOne, String meaningTwo, String transcription, String topicName) {
         List<MeaningsModel> meanings = receiveMeaning(topicName);
         meaningSqlController.changeMeaning(meanings.stream().filter(s -> s.getMeaningOne().equals(oldMeaningOne))
-                .filter(a -> a.getMeaningTwo().equals(oldMeaningTwo)).findFirst().get().getId(), meaningOne, meaningTwo);
+                .filter(a -> a.getMeaningTwo().equals(oldMeaningTwo)).findFirst().get().getId(), meaningOne, meaningTwo, transcription);
     }
 }

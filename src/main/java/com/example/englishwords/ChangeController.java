@@ -69,7 +69,7 @@ public class ChangeController implements Initializable {
         if (!inputName.getText().isEmpty()) {
             if (!inputFirstMeaning.getText().isEmpty() || !inputSecondMeaning.getText().isEmpty()) {
                 sqlHelper.changeWords(oldMeaningOne, oldMeaningTwo, inputFirstMeaning.getText(),
-                        inputSecondMeaning.getText(), inputName.getText());
+                        inputSecondMeaning.getText(), inputTranslation.getText(), inputName.getText());
                 initialize(null, null);
                 tableView.getSelectionModel().select(selectedIndex);
                 inputFirstMeaning.setText(tableView.getSelectionModel().getSelectedItem().getMeaningOne());
